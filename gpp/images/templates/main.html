@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" autocapitalize="off">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input">
+    <button type="submit" class="btn btn-primary mt-3"> 
+        Submit
+    </button>
+</form>
+<br>
+
+{% if object %}
+    <div>
+        {{ object.phrase }}
+        <br>
+        <img src="{{object.ai_image.url}}" alt="{{ object.phrase }}">
+    </div>
+{% endif %}
+
+{% endblock content %}
